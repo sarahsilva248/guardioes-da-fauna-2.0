@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardiões da Fauna: Brasil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="game-container">
+    <div id="ui-layer">
+        <div class="hud-box" id="hud-level"><span>BIOMA</span>Cerradão</div>
+        <div class="hud-box" id="hud-score"><span>BIODIVERSIDADE</span>100%</div>
+        <div class="hud-box" id="hud-char"><span>CAMPO</span>Selecione uma pessoa</div>
+        <div class="hud-box" id="hud-obj"><span>MISSÃO</span>Desative as armadilhas e encontre a anta</div>
+    </div>
+
+    <!-- Tela Inicial e Seleção -->
+    <div id="screen-start" class="screen">
+        <p class="eyebrow">CEPI OSVALDO DA COSTA MEIRELES · JOGOS DIGITAIS</p>
+        <h1>Guardiões da fauna</h1>
+        <p class="intro-copy">Cada espécie importa. Explore os biomas brasileiros, reduza ameaças e ajude a fauna a voltar para casa.</p>
+        <p class="selection-label">Quem vai a campo?</p>
+        
+        <div class="char-select">
+            <div class="char-card" id="card-iara" onclick="selectChar('iara')">
+                <span class="role-mark">01 / CAMPO</span>
+                <h3>Iara Krenak</h3>
+                <p><strong>Engenheira de biossistemas</strong></p>
+                <p>Observadora e paciente. Usa leitura de rastros para localizar animais sem assustá-los.</p>
+            </div>
+            <div class="char-card" id="card-yuri" onclick="selectChar('yuri')">
+                <span class="role-mark">02 / TECNOLOGIA</span>
+                <h3>Yuri Guimarães</h3>
+                <p><strong>Técnico em robótica</strong></p>
+                <p>Usa um drone de observação para mapear ameaças mantendo distância da fauna.</p>
+            </div>
+        </div>
+
+        <button class="btn" id="btn-start" onclick="startGame()" disabled>Começar expedição <span aria-hidden="true">→</span></button>
+    </div>
+
+    <!-- Tela de Transição de Fase / Game Over -->
+    <div id="screen-msg" class="screen hidden">
+        <p class="eyebrow">RELATÓRIO DE CAMPO</p>
+        <h2 id="msg-title">Missão cumprida</h2>
+        <p id="msg-desc">Você protegeu a fauna com sucesso.</p>
+        <button class="btn" id="msg-btn" onclick="nextLevel()">Continuar <span aria-hidden="true">→</span></button>
+    </div>
+
+    <canvas id="gameCanvas" width="800" height="500"></canvas>
+
+    <!-- Controles para Mobile / Touch -->
+    <div id="mobile-controls">
+        <div class="dpad">
+            <button class="btn-touch" style="grid-area: up" id="btn-up">▲</button>
+            <button class="btn-touch" style="grid-area: left" id="btn-left">◄</button>
+            <button class="btn-touch" style="grid-area: right" id="btn-right">►</button>
+            <button class="btn-touch" style="grid-area: down" id="btn-down">▼</button>
+        </div>
+        <button class="btn-touch action-btn" id="btn-action">AÇÃO (ESPAÇO)</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
